@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css"/>
+</head>
+<style>h2 {
+    text-align: center;
+    margin-top: -3px;
+}
+
+div {
+    text-align: start;
+    /* margin:auto; */
+    /* justify-content: center; */
+    font-size: 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    width:30%;
+   margin-left: 480px;
+   height:400px;
+   padding: 35px;
+   margin-top: 50px;
+    
+}
+#email,#password {
+    width:100%;
+    margin-bottom:20px;
+    margin-top: 10px;
+    height:40px;
+    border-radius: 6px;
+    text-align: start;
+    padding:4px;
+
+}
+
+form {
+    margin-top: 40px;
+}
+
+#submit {
+    width:100%;
+    margin-top:5px;
+    height:50px;
+    border-radius: 6px;
+}
+
+
+h4 {
+    margin-top:30px;
+    margin-left:70px;
+}</style>
+<body>
+    <div>
+        <h2>Login</h2>
+    <form>
+        <label for="">Enter Your Email</label><br/>
+        <input  id="email" type="email" placeholder="Enter Your Email" /><br>
+        <label for="">Enter Password</label><br>
+        <input id="password" type="password" placeholder="Enter Password"/><br>
+
+        <input id="submit" type="submit" value="Login"/>
+        <h4>Forget password?</h4>
+
+    </form>
+</div>
+</body>
+</html>
+
+<script>
+  
+  
+  document.querySelector("form").addEventListener("submit", myLogin);
+  var login=  JSON.parse(localStorage.getItem("page"));
+  function myLogin() {
+    event.preventDefault();
+    var signObj = {
+
+            // name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value,
+        };
+ 
+        for(var i=0; i<login.length; i++){
+
+            console.log(signObj.email);
+            console.log(login);
+           if(signObj.email== login[i].email && signObj.password == login[i].password){
+            alert("Login Succ")
+            
+            }
+             else{
+                alert("faild")
+           }
+
+        }
+   
+    
+  }
+    
+</script>
